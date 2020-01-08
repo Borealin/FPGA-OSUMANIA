@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Jan  7 19:07:52 2020
+# Process ID: 2744
+# Current directory: C:/Users/denie/Documents/Tencent Files/308704199/FileRecv/Bor/Bor.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/denie/Documents/Tencent Files/308704199/FileRecv/Bor/Bor.sim/sim_1/behav/xsim/xsim.dir/Top_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/denie/Documents/Tencent Files/308704199/FileRecv/Bor/Bor.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/denie/Documents/Tencent Files/308704199/FileRecv/Bor/Bor.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/denie/Documents/Tencent -notrace
+couldn't read file "C:/Users/denie/Documents/Tencent": permission denied
+INFO: [Common 17-206] Exiting Webtalk at Tue Jan  7 19:07:52 2020...

@@ -1,0 +1,102 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Tue Jan  7 10:36:09 2020
+| Host         : Borealin-Aero15x running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
+| Design       : Top
+| Device       : xc7k160t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    24 |
+|    Minimum number of control sets                        |    24 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    83 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    24 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     5 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     4 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    10 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             165 |           66 |
+| No           | No                    | Yes                    |              13 |            5 |
+| No           | Yes                   | No                     |              28 |           17 |
+| Yes          | No                    | No                     |             157 |           46 |
+| Yes          | No                    | Yes                    |               4 |            1 |
+| Yes          | Yes                   | No                     |              46 |           13 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+------------------------------------------------+------------------------------------------------+------------------+----------------+
+|  Clock Signal  |                  Enable Signal                 |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
++----------------+------------------------------------------------+------------------------------------------------+------------------+----------------+
+|  div_BUFG[3]   | out/dispBCD/segDevice/U2/shift[0]_i_1_n_0      | out/dispBCD/segDevice/U2/oe_i_1_n_0            |                1 |              1 |
+|  clkdiv/out[4] |                                                |                                                |                1 |              2 |
+|  clk_IBUF_BUFG | in/PS2Driver/FSM_sequential_counter[3]_i_1_n_0 | in/PS2Driver/FSM_sequential_counter[3]_i_3_n_0 |                1 |              4 |
+|  div_BUFG[1]   |                                                | logic/trackD/h1                                |                1 |              4 |
+|  div_BUFG[1]   |                                                | logic/trackD/type[0]_i_5_0                     |                3 |              4 |
+|  div_BUFG[1]   |                                                | logic/trackD/type[0]_i_5__0_0                  |                3 |              4 |
+|  div_BUFG[1]   |                                                | logic/trackD/type[1]_i_4__1_0                  |                2 |              4 |
+|  clk_IBUF_BUFG | in/PS2Driver/ps2_byte[7]_i_1_n_0               |                                                |                1 |              8 |
+|  clkdiv/out[4] | fading/zoom_state[1]                           |                                                |                3 |             10 |
+|  div_BUFG[1]   | out/vga/v_count                                |                                                |                5 |             10 |
+|  div_BUFG[1]   |                                                | out/vga/rdn                                    |                8 |             12 |
+|  div_BUFG[3]   | out/dispBCD/segDevice/U2/shift[0]_i_1_n_0      |                                                |                3 |             12 |
+|  clkdiv/out[2] | out/vga/E[0]                                   |                                                |                2 |             13 |
+|  clk_IBUF_BUFG |                                                | in/PS2Driver/FSM_sequential_counter[3]_i_3_n_0 |                5 |             13 |
+|  div_BUFG[0]   | logic/trackK/res[0]_i_1__2_n_0                 |                                                |                4 |             16 |
+|  div_BUFG[0]   | logic/trackD/res[0]_i_1_n_0                    |                                                |                4 |             16 |
+|  div_BUFG[0]   | logic/trackJ/res[0]_i_1__1_n_0                 |                                                |                4 |             16 |
+|  div_BUFG[0]   | logic/trackF/res[0]_i_1__0_n_0                 |                                                |                4 |             16 |
+|  div_BUFG[0]   | logic/sel                                      | logic/clear                                    |                6 |             20 |
+|  div_BUFG[3]   | out/dispBCD/segDevice/U2/shift[46]_i_1_n_0     | out/dispBCD/segDevice/U2/shift[62]_i_1_n_0     |                6 |             25 |
+|  clk_IBUF_BUFG |                                                |                                                |                8 |             26 |
+|  div_BUFG[3]   | out/dispBCD/segDevice/U2/shift[46]_i_1_n_0     |                                                |               16 |             40 |
+|  div_BUFG[0]   |                                                |                                                |               26 |             57 |
+|  div_BUFG[1]   |                                                |                                                |               31 |             80 |
++----------------+------------------------------------------------+------------------------------------------------+------------------+----------------+
+
+

@@ -1,0 +1,2 @@
+Image.v,verilog,xil_defaultlib,../../../../Bor.srcs/sources_1/ip/Image/sim/Image.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

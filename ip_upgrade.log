@@ -1,0 +1,16 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Mon Jan  6 09:25:40 2020
+| Host         : Borealin-Aero15x running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7k160tffg676-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'Image'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of Image (xilinx.com:ip:blk_mem_gen:8.4) from (Rev. 2) to (Rev. 4)
+

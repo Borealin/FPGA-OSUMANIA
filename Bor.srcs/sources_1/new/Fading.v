@@ -1,0 +1,76 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2020/01/06 10:19:13
+// Design Name: 
+// Module Name: Fading
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Fading(
+    input clk, 
+    input clk_frame, 
+    input [1:0] over, 
+    input retry, 
+    input [8:0] row_addr, 
+    input [9:0] col_addr, 
+    output rstn, 
+    output [11:0] mask
+    );
+    
+    localparam MAX_RADIUS = 640;
+    reg [1:0] zoom_state = 2'b11; // 01: bright; 10: darking; 11: brighting
+    reg [9:0] radius = 0;
+    reg [2:0] init_ticks = 3'b111;
+    assign rstn = ~&init_ticks;
+
+    wire [19:0] x_sqr = (col_addr - 9'd320) * (col_addr - 9'd320);
+    wire [19:0] y_sqr = (row_addr - 9'd240) * (row_addr - 9'd240);
+    wire [19:0] radius_sqr = radius * radius;
+    assign mask = zoom_state == 2'b01 ? 12'hFFF : 
+         (x_sqr + y_sqr <= radius_sqr ? 12'hFFF : 12'h0);
+
+    always @(posedge clk) begin
+			if (~&init_ticks) init_ticks = init_ticks + 1'b1;
+			if (&zoom_state) init_ticks = 3'b0;
+    end
+
+    always @(posedge clk_frame) begin
+
+        case (zoom_state)
+            2'b10: begin // darking
+                radius = radius - 1'b1;
+                if (~|radius) begin
+                    zoom_state = 2'b11;
+                end
+            end
+            2'b11: begin // brighting
+                radius = radius + 1'b1;
+                if (radius == MAX_RADIUS) begin
+                    zoom_state = 2'b01;
+                end
+            end
+
+        endcase
+
+        if ((over[1] | retry) & zoom_state == 2'b01) begin
+            zoom_state = 2'b10;
+            // TODO: the next stage when winning
+        end
+
+    end
+
+endmodule
